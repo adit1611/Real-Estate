@@ -4,20 +4,21 @@ const BallFollowCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    let animationFrame;
     const handleMouseMove = (event) => {
-      // Update position with the cursor's coordinates
-      setPosition({ x: event.clientX, y: event.clientY });
+      // Use requestAnimationFrame to throttle updates
+      animationFrame = requestAnimationFrame(() => {
+        setPosition({ x: event.clientX, y: event.clientY });
+      });
     };
-
-    // Add event listener for mouse movement
+  
     window.addEventListener('mousemove', handleMouseMove);
-
-    // Cleanup event listener on component unmount
+  
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      cancelAnimationFrame(animationFrame); // Clean up animation frame
     };
   }, []);
-
   return (
     <div className="relative h-screen w-screen z-50">
       <div
