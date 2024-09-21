@@ -10,8 +10,8 @@ import Home from './components/Home.jsx'
 
 const connection = createBrowserRouter(
    createRoutesFromElements(
-      <Route path='/' element={<Layout />} >
-      <Route path = '' element={<Home />}/>
+      <Route path='/Real-Estate/' element={<Layout />} >
+      <Route index element={<Home />}/>
       
       </Route>
    )

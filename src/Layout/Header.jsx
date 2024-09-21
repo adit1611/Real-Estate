@@ -47,7 +47,7 @@ function Header() {
           <ul className="flex flex-col md:flex-row gap-4 md:gap-8 font-serif font-semibold text-lg items-center">
             <li>
               <NavLink
-                to="/"
+                to="/Real-Estate/"
                 className={({ isActive }) =>
                   `block py-2 px-4 duration-200 ${
                     isActive
